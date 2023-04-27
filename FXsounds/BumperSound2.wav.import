@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/BumperSound2.wav-2dff63f6c702a48d296fd44c4a7b440d.sample"
+
+[deps]
+
+source_file="res://FXsounds/BumperSound2.wav"
+dest_files=[ "res://.import/BumperSound2.wav-2dff63f6c702a48d296fd44c4a7b440d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

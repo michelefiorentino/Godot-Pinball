@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LaunchedSound.wav-d5d43a0da6e54216236cc69269beb9c9.sample"
+
+[deps]
+
+source_file="res://FXsounds/LaunchedSound.wav"
+dest_files=[ "res://.import/LaunchedSound.wav-d5d43a0da6e54216236cc69269beb9c9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

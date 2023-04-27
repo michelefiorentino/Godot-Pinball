@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SlingSound.mp3-0f0404ead7d0748e8b3bfb0cbcf5faa2.mp3str"
+
+[deps]
+
+source_file="res://FXsounds/SlingSound.mp3"
+dest_files=[ "res://.import/SlingSound.mp3-0f0404ead7d0748e8b3bfb0cbcf5faa2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

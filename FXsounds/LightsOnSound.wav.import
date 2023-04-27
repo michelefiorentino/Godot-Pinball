@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/LightsOnSound.wav-6d3d25f9e5300b5ff49f219e5c8c52c8.sample"
+
+[deps]
+
+source_file="res://FXsounds/LightsOnSound.wav"
+dest_files=[ "res://.import/LightsOnSound.wav-6d3d25f9e5300b5ff49f219e5c8c52c8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

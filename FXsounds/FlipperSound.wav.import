@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FlipperSound.wav-87aba1b4d2e625cdc57fccf8db8b0b8d.sample"
+
+[deps]
+
+source_file="res://FXsounds/FlipperSound.wav"
+dest_files=[ "res://.import/FlipperSound.wav-87aba1b4d2e625cdc57fccf8db8b0b8d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
