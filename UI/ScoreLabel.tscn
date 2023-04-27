@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Fonts/Montserrat_ScoreHUD.tres" type="DynamicFont" id=1]
+
+[node name="Control" type="HBoxContainer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="id" type="Label" parent="."]
+margin_right = 100.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="name" type="Label" parent="."]
+margin_left = 104.0
+margin_right = 324.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 220, 0 )
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "NAM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="."]
+margin_left = 328.0
+margin_right = 503.0
+margin_bottom = 75.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "score"
+__meta__ = {
+"_edit_use_anchors_": false
+}

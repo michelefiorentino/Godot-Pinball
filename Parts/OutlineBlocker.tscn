@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="OutlineBlocker" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Blocker" type="Polygon2D" parent="."]
+scale = Vector2( 2, 2 )
+color = Color( 0.05, 0.05, 0.05, 1 )
+offset = Vector2( -82, -1591.8 )
+antialiased = true
+polygon = PoolVector2Array( 117.237, 1609.11, 47.3783, 1564.16, 47.3783, 1574.28, 117.237, 1619.98 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -69.2459, -55.2615, 70.4954, 34.5934, 70.4901, 56.4013, -69.1875, -34.875 )
+disabled = true

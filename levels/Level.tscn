@@ -1,0 +1,670 @@
+[gd_scene load_steps=34 format=2]
+
+[ext_resource path="res://assets/BordiCompleto.png" type="Texture" id=1]
+[ext_resource path="res://Parts/Flipper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Parts/Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/SmartphoneControl.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Parts/FlipperSX.gd" type="Script" id=6]
+[ext_resource path="res://Parts/FlipperDX.gd" type="Script" id=7]
+[ext_resource path="res://Parts/Bumper.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Parts/Slingshot.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Parts/Plunger.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/Level.gd" type="Script" id=11]
+[ext_resource path="res://Parts/AutoPlunger.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Parts/OutlineBlocker.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/Background.png" type="Texture" id=14]
+[ext_resource path="res://FXsounds/LightsOnSound.wav" type="AudioStream" id=15]
+[ext_resource path="res://assets/Luci/x2Accesa.png" type="Texture" id=16]
+[ext_resource path="res://assets/Luci/x4Accesa.png" type="Texture" id=17]
+[ext_resource path="res://assets/BordoInterno_UPSX.png" type="Texture" id=18]
+[ext_resource path="res://assets/Luci/x4Spenta.png" type="Texture" id=19]
+[ext_resource path="res://assets/Luci/x6Spenta.png" type="Texture" id=20]
+[ext_resource path="res://assets/Luci/x6Accesa.png" type="Texture" id=21]
+[ext_resource path="res://assets/Luci/x2Spenta.png" type="Texture" id=22]
+[ext_resource path="res://levels/Lights.gd" type="Script" id=23]
+[ext_resource path="res://assets/Luci/LungaAccesa.png" type="Texture" id=24]
+[ext_resource path="res://assets/Luci/LungaSpenta.png" type="Texture" id=25]
+[ext_resource path="res://FXsounds/BackgroundMusic.wav" type="AudioStream" id=26]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 38.2547, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 52.4296, 10.7678 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Lighten_LOWER"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Longs/L4/LS4:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Longs/L5/LS5:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Longs/L4/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Longs/L5/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Lighten_UPPER"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Longs/L1/LS1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Longs/L2/LS2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Longs/L3/LS3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Longs/L1/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Longs/L2/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Longs/L3/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "restart_lights"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Longs/L1/LS1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Longs/L2/LS2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Longs/L3/LS3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Longs/L4/LS4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Longs/L5/LS5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Longs/L1/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Longs/L2/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Longs/L3/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Longs/L4/CollisionShape2D:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Longs/L5/CollisionShape2D:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Stars/Sx2:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Stars/Sx4:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Stars/Sx6:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 24, 10 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 125.441, 7.72559 )
+
+[node name="Level" type="Node" groups=[
+"Level",
+]]
+script = ExtResource( 11 )
+
+[node name="SmartphoneControl" parent="." instance=ExtResource( 5 )]
+
+[node name="Left" parent="SmartphoneControl" index="0"]
+visible = false
+
+[node name="Right" parent="SmartphoneControl" index="1"]
+visible = false
+
+[node name="Background" type="TextureRect" parent="."]
+margin_top = 232.0
+margin_right = 2160.0
+margin_bottom = 3287.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Plunger" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1027.25, 1418.79 )
+
+[node name="Borders" type="Node2D" parent="."]
+position = Vector2( 540, 958 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="OutlaneBlockers" type="Node2D" parent="Borders"]
+position = Vector2( 0, -134 )
+
+[node name="OutlineBlockerSX" parent="Borders/OutlaneBlockers" instance=ExtResource( 13 )]
+position = Vector2( -915, 1263 )
+
+[node name="OutlineBlockerDX" parent="Borders/OutlaneBlockers" instance=ExtResource( 13 )]
+position = Vector2( 788, 1263 )
+scale = Vector2( -1, 1 )
+
+[node name="PlungerBlocker" parent="Borders/OutlaneBlockers" instance=ExtResource( 13 )]
+position = Vector2( 975.429, 35.3965 )
+scale = Vector2( -1, 1 )
+
+[node name="Blocker" parent="Borders/OutlaneBlockers/PlungerBlocker" index="0"]
+position = Vector2( -1.604, -2 )
+scale = Vector2( 2.19683, 2 )
+
+[node name="CollisionPolygon2D" parent="Borders/OutlaneBlockers/PlungerBlocker" index="1"]
+polygon = PoolVector2Array( -68.7036, -52.3669, 73.6117, 31.7474, 71.4904, 51.1929, -68.5632, -31.5311 )
+
+[node name="CompleteBorder" type="TextureRect" parent="Borders"]
+margin_left = -1080.0
+margin_top = -1520.43
+margin_right = 1080.0
+margin_bottom = 1567.57
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExBorder" type="StaticBody2D" parent="Borders"]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/ExBorder"]
+visible = false
+position = Vector2( 0, 24 )
+polygon = PoolVector2Array( 1080, 1544, 189, 1544, 190.529, 1508.49, 196.356, 1504.72, 722, 1136, 722, 1360, 854, 1360, 854, 1164, 851, 426, 850.2, 426, 847.2, 397, 846.5, 397, 831.5, 340, 830.6, 340, 818.6, 310, 817.8, 310, 796.8, 271, 796, 271, 759, 220, 758.1, 220, 722.1, 181, 720.2, 181, 684, 146.9, 681.606, 142, 682.9, 135, 689.3, 128, 748, 79.1, 748, 78.2, 806, 22.2, 806, 20.2, 843, -19.9, 843, -21.7, 866, -48.7, 866, -50.7, 897, -93, 903.3, -93, 908, -82.4, 907.711, 1034.11, 1041, 1034.11, 1043.15, -46.3619, 1039.37, -169.834, 1041, -517, 1040, -607, 1039.2, -607, 1031.2, -687, 1030.4, -687, 1013.3, -770, 1012.5, -770, 983.6, -860, 982.7, -860, 942.7, -948, 941.8, -948, 908.9, -1006, 908, -1006, 848, -1090, 847.1, -1090, 807.1, -1137, 806.2, -1137, 725.2, -1215, 723.3, -1215, 652.3, -1271, 650.4, -1271, 569.4, -1323, 567.5, -1323, 488.5, -1364, 485.6, -1364, 395.7, -1401, 392.7, -1401, 323.7, -1423, 319.8, -1423, 211.6, -1447, 204.9, -1447, 117.7, -1458, 103, -1458, 19, -1460.9, 19, -1460.1, -60, -1457.1, -60, -1456.2, -154, -1445.2, -154, -1444.4, -254, -1423.3, -254, -1422.5, -340, -1396.5, -340, -1395.6, -419, -1364.6, -419, -1363.8, -500, -1323.7, -500, -1322.9, -583, -1271.9, -583, -1271, -650, -1221, -650, -1220.1, -692, -1184.1, -692, -1183.2, -770, -1102.2, -770, -1100.3, -822, -1034.3, -822, -1032.4, -868, -960.4, -868, -958.5, -905, -885.5, -905, -882.6, -935, -805.6, -935, -801.7, -955, -731, -955, -725.8, -968, -652.6, -968, -643.9, -973, -587.8, -973, -527, -971.1, -495, -970.2, -495, -960.2, -412, -959.4, -412, -939.5, -325, -938.6, -325, -910.6, -244, -909.7, -244, -874.8, -168, -873.8, -168, -838.9, -107, -838, -107, -788, -36.6, -788, -34.6, -775, -13.6, -775, -10.4, -762, 23.6, -762, 29, -759.9, 66, -761.4, 66, -768.4, 96, -769.7, 96, -786.8, 127, -788, 127, -797, 139, -799.3, 139, -836, 169.9, -836, 170.8, -873, 206.8, -873, 208.8, -896, 233.9, -896, 235.7, -921, 268.7, -921, 270.5, -951, 324.5, -951, 327.4, -962, 353.3, -962, 357.3, -972, 391.3, -972, 397.2, -977, 424.4, -977, 595, -980, 1360, -848, 1360, -846.167, 1140.67, -320.749, 1508.2, -318.566, 1510.78, -318, 1544, -1080, 1544, -1080, -1544, 1080, -1544 )
+
+[node name="InBorderDOWNSX" type="StaticBody2D" parent="Borders"]
+position = Vector2( -636, 826 )
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/InBorderDOWNSX"]
+visible = false
+position = Vector2( 2, 34 )
+polygon = PoolVector2Array( -177.103, -393.61, -173.432, -387.757, -171.5, -381.259, -171.5, -23, -167.7, 17, -167.1, 17, -156.1, 50, -155.5, 50, -139.5, 70, -137.9, 70, 212.5, 314.3, 212.5, 318, 208.5, 318, 189.5, 317.1, 172.5, 328.1, 172.5, 329.5, 157.6, 350.121, 156.264, 355.689, 146.53, 392.809, 141.286, 388.688, -212.096, 149.244, -211.302, -380.928, -211, -383, -207.693, -391.917, -203.362, -395.806, -198.5, -399.2, -194.877, -399.783, -185.09, -399.365 )
+
+[node name="InBorderDOWNDX" type="StaticBody2D" parent="Borders"]
+position = Vector2( 511, 826 )
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/InBorderDOWNDX"]
+visible = false
+position = Vector2( -2, 32 )
+scale = Vector2( -1, 1 )
+polygon = PoolVector2Array( -177.103, -393.61, -173.432, -387.757, -171.5, -381.259, -171.5, -23, -167.7, 17, -167.1, 17, -156.1, 50, -155.5, 50, -139.5, 70, -137.9, 70, 212.5, 314.3, 212.5, 318, 208.5, 318, 189.5, 317.1, 172.5, 328.1, 172.5, 329.5, 158.5, 353.5, 158.5, 356.2, 147.736, 395.941, 147.264, 397.003, 144.314, 389.586, -208.645, 149.066, -211.008, -380.096, -211, -383, -207.693, -391.917, -203.362, -395.806, -198.5, -399.2, -194.877, -399.783, -185.09, -399.365 )
+
+[node name="InBorderUPSX" type="StaticBody2D" parent="Borders"]
+collision_mask = 0
+
+[node name="SlingShotUP" parent="Borders/InBorderUPSX" instance=ExtResource( 9 )]
+position = Vector2( -594.311, -359.713 )
+rotation = -0.226893
+scale = Vector2( 2, 2 )
+
+[node name="Sprite" parent="Borders/InBorderUPSX/SlingShotUP" index="1"]
+visible = false
+
+[node name="SlingArea" parent="Borders/InBorderUPSX/SlingShotUP" index="3"]
+position = Vector2( 0.97438, 0.224976 )
+
+[node name="CollisionSling" parent="Borders/InBorderUPSX/SlingShotUP/SlingArea" index="0"]
+visible = true
+
+[node name="Sprite" type="Sprite" parent="Borders/InBorderUPSX"]
+position = Vector2( -445.915, -695.948 )
+texture = ExtResource( 18 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/InBorderUPSX"]
+visible = false
+position = Vector2( -444.539, -693.08 )
+polygon = PoolVector2Array( 394.5, -473.5, 384.8, -473.5, 293.5, -457.8, 293.5, -456.9, 244.5, -445, 244.5, -444.1, 180.5, -423.1, 180.5, -422.2, 92.5, -382.2, 92.5, -381.3, 48.5, -356.4, 48.5, -355.4, -0.5, -322.4, -0.5, -321.5, -38.5, -291.5, -38.5, -290.6, -82.5, -249.6, -82.5, -247.7, -103.5, -226.7, -103.5, -224.8, -139.5, -181.8, -139.5, -179.8, -157.5, -155.8, -157.5, -153.9, -187.5, -105, -187.5, -103, -209.5, -58, -209.5, -55.1, -228.5, -6.09998, -228.5, -2.20001, -245.5, 63.5, -245.5, 69.7, -250.5, 98.8, -250.5, 109, -250.3, 109.5, -249.4, 109.5, 2.60001, 509.5, 3.60001, 509.5, 5.60001, 512.5, 6.39999, 512.5, 22.3, 508.5, 38.8, 508.5, 46.5, 511.1, 46.5, 512.8, 52.5, 519.8, 52.5, 528, 47.7, 536.5, 44.6, 536.5, -192.2, 601.5, -198.5, 601.5, -227.5, 602.5, -227.5, 600.8, -245.5, 592.8, -245.5, 590.2, -285.5, 536.2, -285.5, 534, -314.5, 486.1, -314.5, 484, -341.5, 429, -341.5, 425.9, -365.5, 362.9, -365.5, 358.8, -377.5, 318.8, -377.5, 313.9, -389.5, 254.7, -389.5, 246.5, -394.5, 204.6, -394.5, 184.5, -394.5, 136.5, -389.4, 66.5, -388.2, 66.5, -377.2, 2.5, -376, 2.5, -354, -74.5, -352.9, -74.5, -328.9, -134.5, -327.7, -134.5, -298.7, -191.5, -297.6, -191.5, -256.6, -255.5, -255.5, -255.5, -211.5, -311.5, -210.4, -311.5, -168.4, -356.5, -166.3, -356.5, -110.3, -407.5, -108.2, -407.5, -36.2, -460.5, -34, -460.5, 19.9, -493.5, 22, -493.5, 92, -528.5, 94.9, -528.5, 159.1, -554.5, 162.2, -554.5, 240.2, -578.5, 245.1, -578.5, 324.3, -595.5, 331.3, -595.5, 387.5, -602.3, 394.5, -602.5 )
+
+[node name="InBorderUPDX" type="StaticBody2D" parent="Borders"]
+visible = false
+position = Vector2( -4, 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/InBorderUPDX"]
+position = Vector2( 664, -574 )
+polygon = PoolVector2Array( -202, -635.8, -202, -634.7, -140, -602.7, -140, -601.6, -82, -565.6, -82, -564.5, -40, -534.5, -40, -533.5, -4, -504.5, -4, -503.4, 43, -459.4, 43, -457.3, 73, -426.3, 73, -424.2, 121, -364.2, 121, -362.1, 153, -314.1, 153, -312.1, 183, -257, 183, -253.9, 205, -204.9, 205, -201.8, 226, -139.8, 226, -135.5, 238, -86.7, 238, -80.5, 246, -30.7, 246, -19.5, 248, 2.40002, 248, 89.5, 237.7, 163.5, 236.7, 163.5, 225.6, 216.5, 224.5, 216.5, 208.5, 270.5, 207.4, 270.5, 188.4, 320.5, 187.2, 320.5, 167.3, 363.5, 166.1, 363.5, 138.2, 413.5, 137.1, 413.5, 98.1, 470.5, 96.9, 470.5, 55.9, 520.5, 54.9, 520.5, 20.9, 556.5, 18.9, 556.5, -19.2, 592.5, -21.3, 592.5, -50.3, 617.5, -52.4, 617.5, -102.4, 653.5, -113.4, 653.5, -180.4, 622.5, -183.4, 622.5, -218, 608.9, -218, 607.6, -231, 599.6, -231, 594.4, -229.8, 583.5, -227.9, 583.5, -217.9, 571.5, -215.7, 571.5, -156, 531.4, -156, 530.5, -90, 477.5, -90, 476.7, -30, 414.7, -30, 412.8, -2, 378.8, -2, 376.9, 24, 340, 24, 338, 61, 269.9, 61, 267.1, 76, 233.2, 76, 230.2, 91, 186.2, 91, 182.3, 106, 112.1, 106, 104.4, 110.9, 30.5, 110.1, 30.5, 104.1, -49.5, 103.4, -49.5, 87.3, -123.5, 86.6, -123.5, 60.6, -195.5, 59.7, -195.5, 45.7, -226.5, 44.8, -226.5, 19.9, -271.5, 19, -271.5, -29, -338.5, -29.9, -338.5, -50.9, -363.5, -51.8, -363.5, -98.8, -410.5, -100.7, -410.5, -164.8, -462.5, -166.6, -462.5, -199.5, -485.5, -201.5, -485.5, -248, -511.7, -248, -653.5, -244.2, -653.5 )
+
+[node name="Separatore1" type="StaticBody2D" parent="Borders"]
+position = Vector2( 0, -390 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/Separatore1"]
+visible = false
+position = Vector2( 99.7111, -845.11 )
+polygon = PoolVector2Array( -18.9382, -62.3884, 17.1432, -60.6066, 17.5886, 64.7874, -18.7156, 62.7829 )
+
+[node name="Separatore2" type="StaticBody2D" parent="Borders"]
+position = Vector2( 2, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Borders/Separatore2"]
+visible = false
+position = Vector2( 264.54, -1205.12 )
+polygon = PoolVector2Array( 16.2625, -62.1687, 16.5, 68.1979, -16.5, 58.7403, -16.3551, -69.5224, -10.9, -69.0219 )
+
+[node name="FlipperSX" parent="." instance=ExtResource( 2 )]
+position = Vector2( 319.499, 1563 )
+script = ExtResource( 6 )
+
+[node name="FlipperDX" parent="." instance=ExtResource( 2 )]
+position = Vector2( 700.116, 1563 )
+scale = Vector2( -1, 1 )
+script = ExtResource( 7 )
+
+[node name="SlingshotSX" parent="." instance=ExtResource( 9 )]
+position = Vector2( 257.4, 1296.99 )
+
+[node name="SlingshotDX" parent="." instance=ExtResource( 9 )]
+position = Vector2( 760, 1296.99 )
+scale = Vector2( -1, 1 )
+
+[node name="AutoPlungerSX" parent="." instance=ExtResource( 12 )]
+position = Vector2( 82.2684, 1635.42 )
+
+[node name="AutoPlungerDX" parent="." instance=ExtResource( 12 )]
+position = Vector2( 936, 1635.42 )
+
+[node name="ClosePlungerLine" type="Area2D" parent="."]
+position = Vector2( 9.80011, -29.3997 )
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClosePlungerLine"]
+position = Vector2( 1004.06, 849.671 )
+shape = SubResource( 1 )
+
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2( 248.836, 784.725 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 23 )
+
+[node name="Stars" type="Node2D" parent="Lights"]
+position = Vector2( 518.494, 1412.78 )
+
+[node name="Ax2" type="Sprite" parent="Lights/Stars"]
+position = Vector2( -230.979, -96.217 )
+texture = ExtResource( 16 )
+
+[node name="Ax4" type="Sprite" parent="Lights/Stars"]
+texture = ExtResource( 17 )
+
+[node name="Ax6" type="Sprite" parent="Lights/Stars"]
+position = Vector2( 226, -97 )
+texture = ExtResource( 21 )
+
+[node name="Sx2" type="Sprite" parent="Lights/Stars"]
+position = Vector2( -230.979, -96.217 )
+texture = ExtResource( 22 )
+
+[node name="Sx4" type="Sprite" parent="Lights/Stars"]
+texture = ExtResource( 19 )
+
+[node name="Sx6" type="Sprite" parent="Lights/Stars"]
+position = Vector2( 226, -97 )
+texture = ExtResource( 20 )
+
+[node name="Longs" type="Node2D" parent="Lights"]
+
+[node name="L1" type="Area2D" parent="Lights/Longs"]
+
+[node name="LA1" type="Sprite" parent="Lights/Longs/L1"]
+position = Vector2( 595.976, -834.001 )
+texture = ExtResource( 24 )
+
+[node name="LS1" type="Sprite" parent="Lights/Longs/L1"]
+position = Vector2( 595.976, -834.001 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/Longs/L1"]
+position = Vector2( 594.756, -888.647 )
+shape = SubResource( 2 )
+
+[node name="L2" type="Area2D" parent="Lights/Longs"]
+
+[node name="LA2" type="Sprite" parent="Lights/Longs/L2"]
+position = Vector2( 763.302, -809.682 )
+texture = ExtResource( 24 )
+
+[node name="LS2" type="Sprite" parent="Lights/Longs/L2"]
+position = Vector2( 763.302, -809.682 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/Longs/L2"]
+position = Vector2( 766.106, -874.378 )
+shape = SubResource( 2 )
+
+[node name="L3" type="Area2D" parent="Lights/Longs"]
+
+[node name="LA3" type="Sprite" parent="Lights/Longs/L3"]
+position = Vector2( 931.082, -784.142 )
+texture = ExtResource( 24 )
+
+[node name="LS3" type="Sprite" parent="Lights/Longs/L3"]
+position = Vector2( 931.082, -784.142 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/Longs/L3"]
+position = Vector2( 931.785, -833.84 )
+shape = SubResource( 2 )
+
+[node name="L4" type="Area2D" parent="Lights/Longs"]
+
+[node name="LA4" type="Sprite" parent="Lights/Longs/L4"]
+position = Vector2( -162.756, 918.712 )
+texture = ExtResource( 24 )
+
+[node name="LS4" type="Sprite" parent="Lights/Longs/L4"]
+position = Vector2( -162.756, 918.712 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/Longs/L4"]
+position = Vector2( -160.839, 910.021 )
+shape = SubResource( 2 )
+
+[node name="L5" type="Area2D" parent="Lights/Longs"]
+
+[node name="LA5" type="Sprite" parent="Lights/Longs/L5"]
+position = Vector2( 1198.89, 918.901 )
+texture = ExtResource( 24 )
+
+[node name="LS5" type="Sprite" parent="Lights/Longs/L5"]
+position = Vector2( 1198.89, 918.901 )
+texture = ExtResource( 25 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lights/Longs/L5"]
+position = Vector2( 1195.39, 910.021 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Lights"]
+anims/Lighten_LOWER = SubResource( 3 )
+anims/Lighten_UPPER = SubResource( 4 )
+anims/restart_lights = SubResource( 5 )
+
+[node name="LightsOnSound" type="AudioStreamPlayer2D" parent="Lights"]
+stream = ExtResource( 15 )
+
+[node name="Balls" type="Node2D" parent="."]
+position = Vector2( -519.131, 16.9897 )
+
+[node name="Ball" parent="Balls" instance=ExtResource( 3 )]
+position = Vector2( 1236.46, 1226.11 )
+max_speed = 2500
+
+[node name="Timer" type="Timer" parent="Balls"]
+one_shot = true
+
+[node name="Bumpers" type="Node2D" parent="."]
+position = Vector2( 0, -2 )
+
+[node name="Bumper" parent="Bumpers" instance=ExtResource( 8 )]
+position = Vector2( 456.451, 572.963 )
+
+[node name="Bumper2" parent="Bumpers" instance=ExtResource( 8 )]
+position = Vector2( 553.257, 805.341 )
+
+[node name="Bumper3" parent="Bumpers" instance=ExtResource( 8 )]
+position = Vector2( 733.82, 642.572 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="ResetGravity" type="Area2D" parent="."]
+position = Vector2( 1027, 298 )
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ResetGravity"]
+position = Vector2( -8.83032, 315.657 )
+shape = SubResource( 6 )
+
+[node name="FallenBall" type="Area2D" parent="."]
+position = Vector2( 4, 6 )
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FallenBall"]
+position = Vector2( 534, 1824.76 )
+scale = Vector2( 3, 1 )
+shape = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -12.0
+
+[connection signal="body_entered" from="ClosePlungerLine" to="." method="_on_ClosePlungerLine_body_entered"]
+[connection signal="body_entered" from="Lights/Longs/L1" to="Lights" method="_on_L1_body_entered"]
+[connection signal="body_entered" from="Lights/Longs/L2" to="Lights" method="_on_L2_body_entered"]
+[connection signal="body_entered" from="Lights/Longs/L3" to="Lights" method="_on_L3_body_entered"]
+[connection signal="body_entered" from="Lights/Longs/L4" to="Lights" method="_on_L4_body_entered"]
+[connection signal="body_entered" from="Lights/Longs/L5" to="Lights" method="_on_L5_body_entered"]
+[connection signal="timeout" from="Balls/Timer" to="Balls/Ball" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="ResetGravity" to="Balls/Ball" method="_on_ResetGravity_body_entered"]
+[connection signal="body_entered" from="FallenBall" to="." method="_on_FallenBall_body_entered"]
+[connection signal="body_entered" from="FallenBall" to="Balls/Ball" method="_on_FallenBall_body_entered"]
+[connection signal="body_entered" from="FallenBall" to="Lights" method="_on_FallenBall_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="SmartphoneControl"]
+[editable path="Borders/OutlaneBlockers/PlungerBlocker"]
+[editable path="Borders/InBorderUPSX/SlingShotUP"]

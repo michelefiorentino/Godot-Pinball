@@ -1,0 +1,276 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://UI/HUD.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/UI_DOWN.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/UI_UP.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Montserrat_Pause.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://UI/Buttons/ResumeButton.tscn" type="PackedScene" id=6]
+[ext_resource path="res://UI/Buttons/ExitButtonPause.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/Buttons/RetryButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://UI/Buttons/MainMenuButton.tscn" type="PackedScene" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 3
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 1
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 80
+font_data = ExtResource( 5 )
+
+[node name="HUD" type="Control" groups=[
+"HUD",
+]]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1344.93, -118.344 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_UP" type="TextureRect" parent="."]
+margin_top = 2.0
+margin_right = 2160.0
+margin_bottom = 398.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="UI_UP"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 150.0
+margin_right = -447.0
+margin_bottom = -97.0
+rect_scale = Vector2( 1.2, 1.2 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "KTM"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI_DOWN" type="TextureRect" parent="."]
+margin_top = 1741.78
+margin_right = 2161.0
+margin_bottom = 2098.78
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelKTM" type="Label" parent="."]
+margin_left = 3.59595
+margin_top = 387.892
+margin_right = 237.596
+margin_bottom = 510.892
+rect_rotation = -45.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "KTM"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PauseOverlay"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -510.5
+margin_bottom = -326.5
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.976471, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 5
+text = "PAUSED"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="VBoxContainer" parent="PauseOverlay"]
+margin_left = 200.0
+margin_top = 663.0
+margin_right = 880.0
+margin_bottom = 1544.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" parent="PauseOverlay/Menu" instance=ExtResource( 6 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 680.0
+rect_min_size = Vector2( 680, 200 )
+custom_fonts/font = SubResource( 2 )
+scene_to_load = "Resume"
+
+[node name="RetryButton" parent="PauseOverlay/Menu" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 220.0
+margin_right = 680.0
+margin_bottom = 420.0
+rect_min_size = Vector2( 680, 200 )
+scene_to_load = "res://levels/Level.tscn"
+
+[node name="MainMenuButton" parent="PauseOverlay/Menu" instance=ExtResource( 9 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 440.0
+margin_right = 680.0
+margin_bottom = 640.0
+rect_min_size = Vector2( 680, 200 )
+scene_to_load = "res://UI/TitleScreen.tscn"
+
+[node name="ExitButton" parent="PauseOverlay/Menu" instance=ExtResource( 7 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 660.0
+margin_right = 680.0
+margin_bottom = 860.0
+rect_min_size = Vector2( 680, 200 )
+
+[node name="GameoverOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreMenu" type="VBoxContainer" parent="GameoverOverlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 306.171
+margin_right = -100.0
+margin_bottom = -1068.83
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreSign" type="Label" parent="GameoverOverlay/ScoreMenu"]
+margin_right = 880.0
+margin_bottom = 184.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.976471, 1, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_y = 5
+text = "SCORE"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Points" type="Label" parent="GameoverOverlay/ScoreMenu"]
+margin_top = 224.0
+margin_right = 880.0
+margin_bottom = 347.0
+custom_fonts/font = SubResource( 3 )
+text = "1.000.000"
+align = 1
+
+[node name="NewRecordMex" type="Label" parent="GameoverOverlay/ScoreMenu"]
+visible = false
+margin_top = 387.0
+margin_right = 880.0
+margin_bottom = 514.0
+custom_fonts/font = SubResource( 4 )
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="GameoverOverlay/ScoreMenu"]
+visible = false
+margin_top = 387.0
+margin_right = 880.0
+margin_bottom = 496.0
+custom_fonts/font = SubResource( 5 )
+text = "USR"
+align = 1
+max_length = 3
+
+[node name="Menu" type="VBoxContainer" parent="GameoverOverlay"]
+margin_left = 200.0
+margin_top = 1056.1
+margin_right = 880.0
+margin_bottom = 1664.1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RetryButton" parent="GameoverOverlay/Menu" instance=ExtResource( 8 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_right = 680.0
+rect_min_size = Vector2( 680, 200 )
+scene_to_load = "res://levels/Level.tscn"
+
+[node name="MainMenuButton" parent="GameoverOverlay/Menu" instance=ExtResource( 9 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 204.0
+margin_right = 680.0
+margin_bottom = 404.0
+rect_min_size = Vector2( 680, 200 )
+scene_to_load = "res://UI/TitleScreen.tscn"
+
+[node name="ExitButton" parent="GameoverOverlay/Menu" instance=ExtResource( 7 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_left = 0.0
+margin_top = 408.0
+margin_right = 680.0
+margin_bottom = 608.0
+rect_min_size = Vector2( 680, 200 )
+
+[connection signal="text_changed" from="GameoverOverlay/ScoreMenu/LineEdit" to="." method="_on_LineEdit_text_changed"]
